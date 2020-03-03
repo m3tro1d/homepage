@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  .content.content-alongside
+    h3 Welcome!
+    img#index-image(src="/images/tomoko.gif", alt="Tomoko")
+    p I'm m3tro1d, and this is my personal homepage.
+    br
+    p I created this website for practice. It is not yet finished, unfortunately. I consider implementing a blog. Stay tuned for updates!
+
+    h3.content-heading Misc
+    ul
+      li The #[a(href="/software") software] I use.
+
+  #index-links
+    h3 Links:
+
+    h4 Content
+    #links
+      a(href="https://github.com/m3tro1d" target="_blank")
+        img(src="/images/github_logo.svg", alt="Github")
+        | Github
+
+    h4 Personal:
+    #links
+      a(href="mailto:qazwf734@gmail.com")
+        img(src="/images/gmail_logo.png", alt="Gmail")
+        | Email
+      br
+      a(href="https://www.last.fm/user/m3tro1d" target="_blank")
+        img(src="/images/lastfm_logo.png", alt="Last.fm")
+        | Last.fm
+
+    script(lang="javascript" src="/javascript/checkUserIndex.js")
