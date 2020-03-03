@@ -1,5 +1,6 @@
 # Packages
 node_modules/
 
-# Lockfile
-/yarn.lock
+# Lockfiles
+yarn.lock
+package-lock.json
