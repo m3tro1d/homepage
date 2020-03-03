@@ -5,5 +5,12 @@
   "repository": "https://github.com/m3tro1d/personal-website.git",
   "author": "m3tro1d",
   "license": "GPL-3.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.4"
+  }
 }
