@@ -1,0 +1,9 @@
+{
+  "name": "personal-website",
+  "description": "My personal homepage",
+  "main": "server.js",
+  "repository": "https://github.com/m3tro1d/personal-website.git",
+  "author": "m3tro1d",
+  "license": "GPL-3.0",
+  "private": true
+}
