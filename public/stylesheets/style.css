@@ -48,3 +48,28 @@ header#page-header {
 div#page-name {
   font-size: 2em;
 }
+
+/* Content styles */
+div.content {
+  margin-left: 10%;
+  padding: 1%;
+}
+
+div.content-alongside {
+  width: 55%;
+  float: left;
+}
+
+div.content-allpage {
+  width: 80%;
+}
+
+div.content h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.content h3.content-heading {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
