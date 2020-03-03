@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 // Client-side routers
 const indexRouter = require('./app_server/routers/index');
@@ -13,6 +14,7 @@ app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Client routes
 app.use('/', indexRouter);
