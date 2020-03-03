@@ -15,3 +15,22 @@ body {
   height: 100%;
   width: 100%;
 }
+
+
+/* Certain elements styles */
+h3 {
+  color: #00ea75;
+  font-size: 1.2em;
+}
+
+h4 {
+  color: #ff9664;
+}
+
+a {
+  color: #00c6c6;
+}
+
+a:hover {
+  color: #009d9d;
+}
