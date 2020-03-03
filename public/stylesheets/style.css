@@ -73,3 +73,12 @@ div.content h3.content-heading {
   margin-top: 25px;
   margin-bottom: 25px;
 }
+
+/* Index page specific styles */
+img#index-image {
+  width: 36%;
+  margin-left: 10px;
+  border-radius: 5px;
+
+  float: right;
+}
