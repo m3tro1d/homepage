@@ -82,3 +82,38 @@ img#index-image {
 
   float: right;
 }
+
+
+/* Index links styles */
+div#index-links {
+  width: 20%;
+  margin-left: 3%;
+
+  padding: 1%;
+
+  background-color: #494949;
+  border-radius: 5px;
+  font-size: 1.1em;
+
+  float: left;
+}
+
+div#index-links h4 {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+div#index-links img {
+  width: 20px;
+  margin-right: 5px;
+  height: auto;
+}
+
+div#index-links div#links {
+  font-size: 1.15em;
+  margin-left: 50px;
+}
+
+div#index-links * {
+  background-color: inherit;
+}
