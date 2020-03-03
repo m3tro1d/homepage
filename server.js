@@ -1,7 +1,15 @@
 const express = require('express');
+const logger = require('morgan');
 const createError = require('http-errors');
+const cookieParser = require('cookie-parser');
 
 const app = express()
+
+// Middleware
+app.use(logger('dev'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cookieParser());
 
 // Routes go here
 app.use('*', (req, res, next) => {
