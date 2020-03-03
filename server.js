@@ -7,7 +7,12 @@ const path = require('path');
 // Client-side routers
 const indexRouter = require('./app_server/routers/index');
 
+
 const app = express()
+
+// Set up view engine
+app.set('views', path.join(__dirname, 'app_server/views'));
+app.set('view engine', 'pug');
 
 // Middleware
 app.use(logger('dev'));
