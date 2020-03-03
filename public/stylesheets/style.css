@@ -34,3 +34,17 @@ a {
 a:hover {
   color: #009d9d;
 }
+
+
+/* Header styles */
+header#page-header {
+  width: 80%;
+  margin: 0 10% 2%;
+
+  padding: 2%;
+  padding-left: 0;
+}
+
+div#page-name {
+  font-size: 2em;
+}
