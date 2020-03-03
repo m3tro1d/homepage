@@ -3,6 +3,9 @@ const logger = require('morgan');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 
+// Client-side routers
+const indexRouter = require('./app_server/routers/index');
+
 const app = express()
 
 // Middleware
@@ -11,10 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
-// Routes go here
-app.use('*', (req, res, next) => {
-  res.end('Response.');
-});
+// Client routes
+app.use('/', indexRouter);
 
 // Handle 404 error
 app.use((req, res, next) => {
