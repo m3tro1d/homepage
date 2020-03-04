@@ -9,6 +9,9 @@
   "author": "m3tro1d",
   "license": "GPL-3.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
