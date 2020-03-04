@@ -10,6 +10,9 @@ const indexRouter = require('./app_server/routers/index');
 
 const app = express()
 
+// App settings
+app.set('port', process.env.PORT);
+
 // Set up view engine
 app.set('views', path.join(__dirname, 'app_server/views'));
 app.set('view engine', 'pug');
@@ -40,4 +43,4 @@ app.use((err, req, res, next) => {
   res.end(err.message);
 });
 
-app.listen(5000, () => console.log('Server listening on port 5000.'));
+app.listen(app.get('port'), () => console.log(`Server listening on port ${app.get('port')}.`));
