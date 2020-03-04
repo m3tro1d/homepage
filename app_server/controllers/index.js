@@ -7,5 +7,8 @@ module.exports.index = (req, res, next) => {
 }
 
 module.exports.software = (req, res, next) => {
-  res.end('Software page.');
+  res.render('software', {
+    title: 'Software',
+    page_name: 'my software.'
+  });
 }
