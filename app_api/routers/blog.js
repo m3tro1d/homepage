@@ -13,15 +13,15 @@ router.get('/blog/:posturl', (req, res, next) => {
 });
 // Create a post
 router.post('/blog', (req, res, next) => {
-  res.end({ msg: 'Create post.' });
+  res.json({ msg: 'Create post.' });
 });
 // Update a post
 router.put('/blog/:posturl', (req, res, next) => {
-  res.end({ msg: 'Update post ' + req.params.posturl });
+  res.json({ msg: 'Update post ' + req.params.posturl });
 });
 // Delete a post
 router.delete('/blog/:posturl', (req, res, next) => {
-  res.end({ msg: 'Delete post ' + req.params.posturl });
+  res.json({ msg: 'Delete post ' + req.params.posturl });
 });
 
 module.exports = router;
