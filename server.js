@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Client routes
 app.use('/', indexRouter);
 // API routes
-app.use('/api', blogRouter);
+app.use('/api/blog', blogRouter);
 
 // Handle 404 error
 app.use((req, res, next) => {
