@@ -14,13 +14,13 @@ module.exports.getSeveralPosts = (req, res, next) => {
       .limit(amount)      // Limit post amount
       .exec((err, posts) => {
         if (!posts) {     // Check for actual posts
-          sendJsonRepsonse(res, 404, {
+          sendJsonResponse(res, 404, {
             message: 'No post found.'
           });
         } else if (err) { // Check for error
-          sendJsonRepsonse(res, 404, err);
+          sendJsonResponse(res, 404, err);
         } else {          // Send 'em!
-          sendJsonRepsonse(res, 200, posts);
+          sendJsonResponse(res, 200, posts);
         }
       });
     } else { // If amount is negative or not presented, get all posts
@@ -29,13 +29,13 @@ module.exports.getSeveralPosts = (req, res, next) => {
       .sort({ date: -1 }) // Sort newest to latest
       .exec((err, posts) => {
         if (!posts) {     // Check for actual posts
-          sendJsonRepsonse(res, 404, {
+          sendJsonResponse(res, 404, {
             message: 'No posts found.'
           });
         } else if (err) { // Check for error
-          sendJsonRepsonse(res, 404, err);
+          sendJsonResponse(res, 404, err);
         } else {          // Send 'em!
-          sendJsonRepsonse(res, 200, posts);
+          sendJsonResponse(res, 200, posts);
         }
       });
     }
