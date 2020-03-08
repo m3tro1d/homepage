@@ -6,6 +6,8 @@ const path = require('path');
 
 // Client-side routers
 const indexRouter = require('./app_server/routers/index');
+// API routers
+const blogRouter = require('./app_api/routers/blog');
 
 
 // Connect to database
@@ -29,6 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Client routes
 app.use('/', indexRouter);
+// API routes
+app.use('/api', blogRouter);
 
 // Handle 404 error
 app.use((req, res, next) => {
