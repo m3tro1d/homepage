@@ -1,4 +1,3 @@
-// Index page
 module.exports.index = (req, res, next) => {
   res.render('index', {
     title: 'm3tro1d\'s homepage',
