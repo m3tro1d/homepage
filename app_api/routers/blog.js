@@ -3,7 +3,7 @@ const express = require('express');
 // Router for the blog API routes
 const router = express.Router();
 
-// Get all posts
+// Get an amount of posts (or all)
 router.get('/blog', (req, res, next) => {
   res.end('All posts.');
 });
