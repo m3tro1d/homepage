@@ -12,9 +12,7 @@ router.get('/blog/:posturl', ctrlBlog.getOnePost);
 // Create a post
 router.post('/blog', ctrlBlog.createPost);
 // Update a post
-router.put('/blog/:posturl', (req, res, next) => {
-  res.json({ msg: 'Update post ' + req.params.posturl });
-});
+router.put('/blog/:posturl', ctrlBlog.updatePost);
 // Delete a post
 router.delete('/blog/:posturl', (req, res, next) => {
   res.json({ msg: 'Delete post ' + req.params.posturl });
