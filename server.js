@@ -4,8 +4,13 @@ const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
+// Connect to database
+require('./app_api/models/db');
+
 // Client-side routers
 const indexRouter = require('./app_server/routers/index');
+// API routers
+const blogRouter = require('./app_api/routers/blog');
 
 
 const app = express()
@@ -26,6 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Client routes
 app.use('/', indexRouter);
+// API routes
+app.use('/api/blog', blogRouter);
 
 // Handle 404 error
 app.use((req, res, next) => {
