@@ -10,9 +10,7 @@ router.get('/blog', ctrlBlog.getSeveralPosts);
 // Get certain post
 router.get('/blog/:posturl', ctrlBlog.getOnePost);
 // Create a post
-router.post('/blog', (req, res, next) => {
-  res.json({ msg: 'Create post.' });
-});
+router.post('/blog', ctrlBlog.createPost);
 // Update a post
 router.put('/blog/:posturl', (req, res, next) => {
   res.json({ msg: 'Update post ' + req.params.posturl });
