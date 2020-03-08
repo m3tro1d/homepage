@@ -6,15 +6,15 @@ const ctrlBlog = require('../controllers/blog');
 const router = express.Router();
 
 // Get an amount of posts (or all)
-router.get('/blog', ctrlBlog.getSeveralPosts);
+router.get('/', ctrlBlog.getSeveralPosts);
 // Get certain post
-router.get('/blog/:posturl', ctrlBlog.getOnePost);
+router.get('/:posturl', ctrlBlog.getOnePost);
 // Create a post
-router.post('/blog', ctrlBlog.createPost);
+router.post('/', ctrlBlog.createPost);
 // Update a post
-router.put('/blog/:posturl', ctrlBlog.updatePost);
+router.put('/:posturl', ctrlBlog.updatePost);
 // Delete a post
-router.delete('/blog/:posturl', (req, res, next) => {
+router.delete('/:posturl', (req, res, next) => {
   res.json({ msg: 'Delete post ' + req.params.posturl });
 });
 
