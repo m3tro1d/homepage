@@ -7,8 +7,7 @@ module.exports.getSeveralPosts = (req, res, next) => {
   // Get post amount
   let amount = parseInt(req.query.amount);
   // Check for proper amount
-  if (req.query.amount) {
-    if (amount > 0) { // Get <amount> posts if the amount is positive
+  if (req.query.amount && amount > 0) { // Get <amount> posts if the amount is presented and positive
       Post
       .find()             // Get post
       .sort({ date: -1 }) // Sort newest to latest
@@ -24,7 +23,7 @@ module.exports.getSeveralPosts = (req, res, next) => {
           sendJsonRepsonse(res, 200, posts);
         }
       });
-    } else { // If amount is negative, get all posts
+    } else { // If amount is negative or not presented, get all posts
       Post
       .find()             // Get post
       .sort({ date: -1 }) // Sort newest to latest
@@ -40,7 +39,6 @@ module.exports.getSeveralPosts = (req, res, next) => {
         }
       });
     }
-  }
 }
 
 
