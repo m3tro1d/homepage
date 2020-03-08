@@ -14,8 +14,6 @@ router.post('/', ctrlBlog.createPost);
 // Update a post
 router.put('/:posturl', ctrlBlog.updatePost);
 // Delete a post
-router.delete('/:posturl', (req, res, next) => {
-  res.json({ msg: 'Delete post ' + req.params.posturl });
-});
+router.delete('/:posturl', ctrlBlog.deletePost);
 
 module.exports = router;
