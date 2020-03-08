@@ -7,7 +7,6 @@ const router = express.Router();
 
 // Index page
 router.get('/', ctrlIndex.index);
-
 // Software info page
 router.get('/software', ctrlIndex.software);
 
