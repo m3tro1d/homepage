@@ -57,10 +57,40 @@ module.exports.getOnePost = (req, res, next) => {
     });
 }
 
+module.exports.createPost = (req, res, next) => {
+  let postDate = Date.now();
+  Post
+    .create({
+      heading: req.body.heading,
+      text: req.body.text,
+      url: generateUrl(req.body.heading, postDate),
+      date: postDate
+    }, (err, post) => {
+      if (err) {
+        sendJsonResponse(res, 400, err);
+      } else {
+        sendJsonResponse(res, 201, post);
+      }
+    });
+}
+
 
 // Useful functions
 // Ends res with given status and json content
 function sendJsonResponse(res, status, content) {
   res.status(status);
   res.json(content);
+}
+
+// Generate pretty URL for post
+function generateUrl(heading, dateNumber) {
+  let headingArray = heading.toLowerCase().split(' ');
+  let headingPart = headingArray.join('-');
+
+  let date = new Date(dateNumber);
+  let day = date.getDate();
+  let month = date.getMonth();
+  let year = date.getFullYear();
+
+  return `${headingPart}-${day}-${month}-${year}`;
 }
