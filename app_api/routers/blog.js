@@ -6,7 +6,7 @@ const ctrlBlog = require('../controllers/blog');
 const router = express.Router();
 
 // Get an amount of posts (or all)
-router.get('/blog', ctrlBlog.getSeveralPost);
+router.get('/blog', ctrlBlog.getSeveralPosts);
 // Get certain post
 router.get('/blog/:posturl', (req, res, next) => {
   res.end(req.params.posturl + ' post.');
