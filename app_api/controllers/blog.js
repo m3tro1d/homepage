@@ -41,6 +41,22 @@ module.exports.getSeveralPosts = (req, res, next) => {
     }
 }
 
+module.exports.getOnePost = (req, res, next) => {
+  Post
+    .findOne({ url: req.params.posturl })
+    .exec((err, post) => {
+      if (!post) {
+        sendJsonResponse(res, 404, {
+          message: 'Post not found.'
+        });
+      } else if (err) {
+        sendJsonResponse(res, 404, err);
+      } else {
+        sendJsonResponse(res, 200, post);
+      }
+    });
+}
+
 
 // Useful functions
 // Ends res with given status and json content
