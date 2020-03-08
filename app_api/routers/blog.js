@@ -1,12 +1,12 @@
 const express = require('express');
 
+const ctrlBlog = require('../controllers/blog');
+
 // Router for the blog API routes
 const router = express.Router();
 
 // Get an amount of posts (or all)
-router.get('/blog', (req, res, next) => {
-  res.end('All posts.');
-});
+router.get('/blog', ctrlBlog.getSeveralPost);
 // Get certain post
 router.get('/blog/:posturl', (req, res, next) => {
   res.end(req.params.posturl + ' post.');
