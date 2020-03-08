@@ -8,9 +8,7 @@ const router = express.Router();
 // Get an amount of posts (or all)
 router.get('/blog', ctrlBlog.getSeveralPosts);
 // Get certain post
-router.get('/blog/:posturl', (req, res, next) => {
-  res.end(req.params.posturl + ' post.');
-});
+router.get('/blog/:posturl', ctrlBlog.getOnePost);
 // Create a post
 router.post('/blog', (req, res, next) => {
   res.json({ msg: 'Create post.' });
