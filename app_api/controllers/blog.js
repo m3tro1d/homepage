@@ -45,19 +45,20 @@ module.exports.getOnePost = (req, res, next) => {
   Post
     .findOne({ url: req.params.posturl })
     .exec((err, post) => {
-      if (!post) {
+      if (!post) {      // Check for post
         sendJsonResponse(res, 404, {
           message: 'Post not found.'
         });
-      } else if (err) {
+      } else if (err) { // Check for error
         sendJsonResponse(res, 404, err);
-      } else {
+      } else {          // Send it (vewy woughly 0w0)
         sendJsonResponse(res, 200, post);
       }
     });
 }
 
 module.exports.createPost = (req, res, next) => {
+  // Get current date for post
   let postDate = Date.now();
   Post
     .create({
@@ -66,9 +67,9 @@ module.exports.createPost = (req, res, next) => {
       url: generateUrl(req.body.heading, postDate),
       date: postDate
     }, (err, post) => {
-      if (err) {
+      if (err) { // Check for error
         sendJsonResponse(res, 400, err);
-      } else {
+      } else {   // Response with created post
         sendJsonResponse(res, 201, post);
       }
     });
@@ -78,19 +79,19 @@ module.exports.updatePost = (req, res, next) => {
   Post
     .findOne({ url: req.params.posturl })
     .exec((err, post) => {
-      if (!post) {
+      if (!post) {      // Check for post
         sendJsonResponse(res, 404, {
           message: 'Post not found.'
         });
-      } else if (err) {
+      } else if (err) { // Check for error
         sendJsonResponse(res, 400, err);
-      } else {
+      } else {          // update post
         post.heading = req.body.heading;
         post.text = req.body.text;
         post.save((err, post) => {
-          if (err) {
+          if (err) { // Check for error
             sendJsonResponse(res, 400, err);
-          } else {
+          } else {   // Response with edited post
             sendJsonResponse(res, 200, post);
           }
         });
