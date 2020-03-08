@@ -5,7 +5,7 @@ const readline = require('readline');
 require('./Post');
 
 const dbUri = process.env.DB_URI;
-mongoose.connect(dbUri, { useNewUrlParser: true });
+mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology:true });
 
 // Connection events handling
 mongoose.connection.on('connected', () => {
