@@ -8,6 +8,9 @@ const path = require('path');
 const indexRouter = require('./app_server/routers/index');
 
 
+// Connect to database
+require('./app_api/models/db');
+
 const app = express()
 
 // App settings
