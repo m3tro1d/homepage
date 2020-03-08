@@ -4,23 +4,23 @@ const express = require('express');
 const router = express.Router();
 
 // Get all posts
-router.get('/posts', (req, res, next) => {
+router.get('/blog', (req, res, next) => {
   res.end('All posts.');
 });
 // Get certain post
-router.get('/posts/:posturl', (req, res, next) => {
+router.get('/blog/:posturl', (req, res, next) => {
   res.end(req.params.posturl + ' post.');
 });
 // Create a post
-router.post('/posts', (req, res, next) => {
+router.post('/blog', (req, res, next) => {
   res.end({ msg: 'Create post.' });
 });
 // Update a post
-router.put('/posts/:posturl', (req, res, next) => {
+router.put('/blog/:posturl', (req, res, next) => {
   res.end({ msg: 'Update post ' + req.params.posturl });
 });
 // Delete a post
-router.delete('/posts/:posturl', (req, res, next) => {
+router.delete('/blog/:posturl', (req, res, next) => {
   res.end({ msg: 'Delete post ' + req.params.posturl });
 });
 
