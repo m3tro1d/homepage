@@ -4,14 +4,14 @@ const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
+// Connect to database
+require('./app_api/models/db');
+
 // Client-side routers
 const indexRouter = require('./app_server/routers/index');
 // API routers
 const blogRouter = require('./app_api/routers/blog');
 
-
-// Connect to database
-require('./app_api/models/db');
 
 const app = express()
 
