@@ -99,6 +99,18 @@ module.exports.updatePost = (req, res, next) => {
     });
 }
 
+module.exports.deletePost = (req, res, next) => {
+  Post
+    .findOneAndDelete({ url: req.params.posturl }) // Find and delete the post
+    .exec((err, post) => {
+      if (err) { // Check for error
+        sendJsonResponse(res, 404, err);
+      } else {   // Send null response if everything is alrighty
+        sendJsonResponse(res, 204, null);
+      }
+    });
+}
+
 
 // Useful functions
 // Ends res with given status and json content
