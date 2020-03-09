@@ -6,6 +6,7 @@ const apiOptions = {
 
 module.exports.index = (req, res, next) => {
   let path = '/api/blog';
+  
   axios.get(apiOptions.server + path)
     .then(response => {
       // Make post pretty
@@ -14,6 +15,7 @@ module.exports.index = (req, res, next) => {
         post.date = formatDate(post.date);
         return post;
       });
+
       // Render the page
       res.render('blog_index', {
         title: 'Blog index',
@@ -29,12 +31,14 @@ module.exports.index = (req, res, next) => {
 
 module.exports.post = (req, res, next) => {
   let path = '/blog/' + req.params.posturl;
-  
+
   axios.get(apiOptions.server + path)
     .then(response => {
+      // Get and format the post
       let post = response.data;
       post.date = formatDate(post.date);
 
+      // Render the view
       res.render('post', {
         title: data.heading + ' | m3tro1d',
         page_name: 'Post',
