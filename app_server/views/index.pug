@@ -7,6 +7,7 @@ block content
     p I'm m3tro1d, and this is my personal homepage.
     br
     p I created this website for practice. Stay tuned for updates!
+    br
 
     h3.content-heading Recent blog posts
     ul
@@ -14,7 +15,9 @@ block content
         li!= `${post.date} - <a href="/blog/${post.url}">${post.heading}</a>`
       else
         li An unexpected error occured.. Stay tuned.
+    br
     p Check out #[a(href="/blog") blog index] for the rest.
+    br
 
     h3.content-heading About
     ul
