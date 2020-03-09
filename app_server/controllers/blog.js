@@ -15,7 +15,7 @@ module.exports.index = (req, res, next) => {
       });
     })
     .catch(error => {
-      res.end('An error occured: ' + error.message);
+      next(error);
     });
 }
 
