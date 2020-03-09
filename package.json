@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./server.js",
-    "dev": "env-cmd node ./server.js"
+    "dev": "env-cmd nodemon ./server.js"
   },
   "repository": "https://github.com/m3tro1d/personal-website.git",
   "author": "m3tro1d",
