@@ -32,12 +32,6 @@ module.exports.index = (req, res, next) => {
         err_status: 1
       });
     });
-
-  // Render the view
-  res.render('index', {
-    title: 'm3tro1d\'s homepage',
-    page_name: 'm3tro1d.'
-  });
 }
 
 module.exports.software = (req, res, next) => {
