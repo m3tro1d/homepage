@@ -22,3 +22,30 @@ module.exports.index = (req, res, next) => {
 module.exports.post = (req, res, next) => {
   res.end('Post page.');
 }
+
+
+// Useful functions
+// Formats a date in a pretty string
+function formatDate(dateString) {
+  let monthNames = [
+    "Jan", "Feb", "Mar",
+    "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep",
+    "Oct", "Nov", "Dec"
+  ];
+
+  let date = new Date(dateString);
+
+  let day = date.getDate();
+  let monthIndex = date.getMonth();
+  let year = date.getFullYear();
+
+  return `${day} ${monthNames[monthIndex]} ${year}`;
+}
+
+function truncateText(text) {
+  if (text.length > 50) {
+    return text.substring(0, 50) + '...';
+  }
+  return text;
+}
