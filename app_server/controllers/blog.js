@@ -8,7 +8,11 @@ module.exports.index = (req, res, next) => {
   let path = '/api/blog';
   axios.get(apiOptions.server + path)
     .then(response => {
-      res.end(JSON.stringify(response.data));
+      res.render('blog_index', {
+        title: 'Blog index',
+        page_name: 'Blog index.',
+        posts: response.data
+      });
     })
     .catch(error => {
       res.end('An error occured: ' + error.message);
