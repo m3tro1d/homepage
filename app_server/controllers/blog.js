@@ -8,6 +8,13 @@ module.exports.index = (req, res, next) => {
   let path = '/api/blog';
   axios.get(apiOptions.server + path)
     .then(response => {
+      // Make post pretty
+      let data = response.data.map(post => {
+        post.text = truncateText(post.text);
+        post.date = formatDate(post.date);
+        return post;
+      });
+      // Render the page
       res.render('blog_index', {
         title: 'Blog index',
         page_name: 'Blog index.',
