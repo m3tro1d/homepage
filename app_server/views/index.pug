@@ -9,6 +9,12 @@ block content
     p I created this website for practice. Stay tuned for updates!
 
     h3.content-heading Recent blog posts
+    ul
+      each post in recent_posts
+        li!= `${post.date} - <a href="/blog/${post.url}">${post.heading}</a>`
+      else
+        li An unexpected error occured.. Stay tuned.
+    p Check out #[a(href="/blog") blog index] for the rest.
 
     h3.content-heading About
     ul
