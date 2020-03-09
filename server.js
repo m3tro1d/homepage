@@ -9,6 +9,7 @@ require('./app_api/models/db');
 
 // Client-side routers
 const indexRouter = require('./app_server/routers/index');
+const clientBlogRouter = require('./app_server/routers/blog');
 // API routers
 const blogRouter = require('./app_api/routers/blog');
 
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Client routes
 app.use('/', indexRouter);
+app.use('/blog', clientBlogRouter);
 // API routes
 app.use('/api/blog', blogRouter);
 
