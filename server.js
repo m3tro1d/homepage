@@ -9,9 +9,9 @@ require('./app_api/models/db');
 
 // Client-side routers
 const indexRouter = require('./app_server/routers/index');
-const clientBlogRouter = require('./app_server/routers/blog');
+const blogRouter = require('./app_server/routers/blog');
 // API routers
-const blogRouter = require('./app_api/routers/blog');
+const blogApiRouter = require('./app_api/routers/blog');
 
 
 const app = express()
@@ -32,9 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Client routes
 app.use('/', indexRouter);
-app.use('/blog', clientBlogRouter);
+app.use('/blog', blogRouter);
 // API routes
-app.use('/api/blog', blogRouter);
+app.use('/api/blog', blogApiRouter);
 
 // Handle 404 error
 app.use((req, res, next) => {
