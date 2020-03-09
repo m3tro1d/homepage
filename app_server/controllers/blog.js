@@ -40,7 +40,7 @@ module.exports.post = (req, res, next) => {
 
       // Render the view
       res.render('post', {
-        title: data.heading + ' | m3tro1d',
+        title: post.heading + ' | m3tro1d',
         page_name: 'Post',
         post: post
       });
