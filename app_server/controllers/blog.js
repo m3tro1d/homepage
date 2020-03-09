@@ -22,6 +22,7 @@ module.exports.index = (req, res, next) => {
       });
     })
     .catch(error => {
+      // Pass error to the error handler
       next(error);
     });
 }
