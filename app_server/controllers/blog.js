@@ -28,7 +28,23 @@ module.exports.index = (req, res, next) => {
 }
 
 module.exports.post = (req, res, next) => {
-  res.end('Post page.');
+  let path = '/blog/' + req.params.posturl;
+  
+  axios.get(apiOptions.server + path)
+    .then(response => {
+      let post = response.data;
+      post.date = formatDate(post.date);
+
+      res.render('post', {
+        title: data.heading + ' | m3tro1d',
+        page_name: 'Post',
+        post: post
+      });
+    })
+    .catch(error => {
+      // Pass error to the error handler
+      next(error);
+    });
 }
 
 
