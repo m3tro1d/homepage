@@ -8,7 +8,7 @@ const router = express.Router();
 // Blog index page
 router.get('/', ctrlBlog.index);
 // Post page
-router.get('/:posturl', ctrlBlog.post);
+router.get('/post/:posturl', ctrlBlog.post);
 // Posting page
 router.get('/createpost', ctrlBlog.createPost);
 
