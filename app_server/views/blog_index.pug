@@ -4,7 +4,7 @@ block content
   .content.content-allpage
     each post in posts
       .post-container
-        h3!= `<a href="/blog/${post.url}">${post.heading}</a>`
+        h3!= `<a href="/blog/post/${post.url}">${post.heading}</a>`
         p= post.text
         p.post-date= post.date
     else
