@@ -9,5 +9,7 @@ const router = express.Router();
 router.get('/', ctrlBlog.index);
 // Post page
 router.get('/:posturl', ctrlBlog.post);
+// Posting page
+router.get('/createpost', ctrlBlog.createPost);
 
 module.exports = router;
