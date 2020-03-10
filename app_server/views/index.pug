@@ -12,7 +12,7 @@ block content
     h3.content-heading Recent blog posts
     ul
       each post in recent_posts
-        li!= `${post.date} - <a href="/blog/${post.url}">${post.heading}</a>`
+        li!= `${post.date} - <a href="/blog/post/${post.url}">${post.heading}</a>`
       else
         li An unexpected error occured.. Stay tuned.
     br
