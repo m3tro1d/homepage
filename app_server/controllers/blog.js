@@ -51,6 +51,13 @@ module.exports.post = (req, res, next) => {
     });
 }
 
+module.exports.createPost = (req, res, next) => {
+  res.render('blog_create_post', {
+    title: 'Create post | m3tro1d',
+    page_name: 'Create post.'
+  });
+}
+
 
 // Useful functions
 // Formats a date in a pretty string
