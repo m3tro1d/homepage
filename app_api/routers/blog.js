@@ -10,11 +10,11 @@ const router = express.Router();
 router.get('/', ctrlBlog.getSeveralPosts);
 // Get certain post
 router.get('/:posturl', ctrlBlog.getOnePost);
-// Create a post
+// Create a post (requires authorization)
 router.post('/', auth, ctrlBlog.createPost);
-// Update a post
+// Update a post (requires authorization)
 router.put('/:posturl', auth, ctrlBlog.updatePost);
-// Delete a post
+// Delete a post (requires authorization)
 router.delete('/:posturl', auth, ctrlBlog.deletePost);
 
 module.exports = router;
