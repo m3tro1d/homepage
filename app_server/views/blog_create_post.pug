@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .content.content-allpage
+    form(action="/api/blog", method="post")
+      input#posting-heading(type="text", name="heading")
+      br
+      textarea#posting-text(name="text", cols="30", rows="10")
+      br
+      input#posting-password(type="password", name="password")
+      br
+      button#posting-submit(type="submit")
