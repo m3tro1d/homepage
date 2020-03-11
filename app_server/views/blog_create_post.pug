@@ -2,7 +2,7 @@ extends layout
 
 block content
   .content.content-allpage
-    form(action="/api/blog", method="post")
+    form#posting-form(action="/api/blog", method="post")
       label(for="posting-heading") Heading:
       br
       input#posting-heading(type="text", name="heading")
