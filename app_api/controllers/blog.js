@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const UrlSafeString = require('url-safe-string');
 
 // Get model
 const Post = mongoose.model('Post');
@@ -121,13 +122,14 @@ function sendJsonResponse(res, status, content) {
 
 // Generate pretty URL for post
 function generateUrl(heading, dateNumber) {
-  let headingArray = heading.toLowerCase().split(' ');
-  let headingPart = headingArray.join('-');
+  // Generate safe url
+  const urlGenerator = new UrlSafeString();
+  let urlStart = urlGenerator.generate(heading);
 
   let date = new Date(dateNumber);
   let day = date.getDate();
   let month = date.getMonth();
   let year = date.getFullYear();
 
-  return `${headingPart}-${day}-${month}-${year}`;
+  return `${urlStart}-${day}-${month}-${year}`;
 }
