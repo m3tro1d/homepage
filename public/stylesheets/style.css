@@ -138,3 +138,32 @@ div.content div.post-container p.post-date {
   font-size: .9em;
   color: #9f9f9f;
 }
+
+
+/* Posting form styles */
+form input {
+  padding: 5px;
+  margin: 15px 0 15px;
+
+  color: #000;
+  background-color: #FFF;
+
+  border: 2px solid silver;
+  border-radius: 10px;
+}
+
+form button {
+  padding: 5px;
+  margin: 15px 0 15px;
+
+  color: #000;
+  background-color: #FFF;
+
+  border: 2px solid silver;
+  border-radius: 10px;
+}
+
+form button:hover {
+  cursor: pointer;
+  background-color: #aaaaaa;
+}
