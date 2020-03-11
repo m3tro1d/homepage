@@ -30,7 +30,7 @@ module.exports.index = (req, res, next) => {
 }
 
 module.exports.post = (req, res, next) => {
-  let path = '/api/blog/' + req.params.posturl;
+  let path = '/api/blog/post/' + req.params.posturl;
 
   axios.get(apiOptions.server + path)
     .then(response => {
