@@ -30,7 +30,7 @@ form.onsubmit = function (event) {
     } else {
       alert(`Posted successfully. You now will be redirected to the post page.`);
       let responseObj = JSON.parse(xhr.responseText);
-      document.location.href = `${apiOptions.server}/${responseObj.url}`;
+      document.location.href = `${apiOptions.server}/blog/post/${responseObj.url}`;
     }
   }
 
