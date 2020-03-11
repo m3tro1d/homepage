@@ -26,9 +26,9 @@ form.onsubmit = function (event) {
   
   xhr.onload = function() {
     if (xhr.status != 201) {
-      alert(`Posting error ${xhr.status}: ${xhr.statusText}`);
+      printMessage(`Posting error ${xhr.status}: ${xhr.statusText}`, 'red');
     } else {
-      alert(`Posted successfully. You now will be redirected to the post page.`);
+      printMessage('Posted successfully. You now will be redirected to the post page.', 'green');
       let responseObj = JSON.parse(xhr.responseText);
       document.location.href = `${apiOptions.server}/blog/post/${responseObj.url}`;
     }
@@ -36,4 +36,11 @@ form.onsubmit = function (event) {
 
   // Send a request
   xhr.send(JSON.stringify(body));
+}
+
+// Prints a message in the specified color with a slight delay
+function printMessage(msg, color) {
+  const messageBox = document.getElementById('posting-message');
+  messageBox.style.color = color;
+  messageBox.textContent = msg;
 }
