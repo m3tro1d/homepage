@@ -180,3 +180,7 @@ form textarea {
 
   resize: none;
 }
+
+form span#posting-message {
+  margin: 10px;
+}
