@@ -167,3 +167,16 @@ form button:hover {
   cursor: pointer;
   background-color: #aaaaaa;
 }
+
+form textarea {
+  padding: 5px;
+  margin: 15px 0 15px;
+
+  color: #000;
+  background-color: #FFF;
+
+  border: 2px solid silver;
+  border-radius: 10px;
+
+  resize: none;
+}
