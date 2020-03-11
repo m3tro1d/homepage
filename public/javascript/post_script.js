@@ -27,10 +27,15 @@ form.onsubmit = function (event) {
   xhr.onload = function() {
     if (xhr.status != 201) {
       printMessage(`Posting error ${xhr.status}: ${xhr.statusText}`, 'red');
+      setTimeout(function() {
+        printMessage('', '');
+      }, 2000);
     } else {
       printMessage('Posted successfully. You now will be redirected to the post page.', 'green');
-      let responseObj = JSON.parse(xhr.responseText);
-      document.location.href = `${apiOptions.server}/blog/post/${responseObj.url}`;
+      setTimeout(function() {
+        let responseObj = JSON.parse(xhr.responseText);
+        document.location.href = `${apiOptions.server}/blog/post/${responseObj.url}`;
+      }, 2000);
     }
   }
 
