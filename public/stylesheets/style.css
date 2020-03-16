@@ -140,6 +140,12 @@ div.content div.post-container p.post-date {
 }
 
 
+/* Post text formatting styles */
+.formatting-panel button {
+  margin-right: 5px;
+}
+
+
 /* Posting form styles */
 form input {
   padding: 5px;
