@@ -1,6 +1,6 @@
 const boldButton = document.getElementById('format-bold');
 const italicButton = document.getElementById('format-italic');
-const deletedButton = document.getElementById('format-deleted');
+const spoilerButton = document.getElementById('format-spoiler');
 
 // Bold text
 boldButton.onclick = function(event) {
@@ -15,9 +15,9 @@ italicButton.onclick = function(event) {
 }
 
 // Deleted text
-deletedButton.onclick = function(event) {
+spoilerButton.onclick = function(event) {
   event.preventDefault();
-  insertText('<del></del>', 6);
+  insertText('<span class=\"spoiler\"></span>', 7);
 }
 
 // Inserts text in the posting textarea (shifts the cursor from the right)
