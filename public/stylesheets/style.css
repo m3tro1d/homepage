@@ -35,6 +35,16 @@ a:hover {
   color: #009d9d;
 }
 
+span.spoiler {
+  color: #747474;
+  background-color: #747474;
+}
+
+span.spoiler:hover {
+  color: #fff;
+}
+
+
 /* Header styles */
 header#page-header {
   width: 80%;
