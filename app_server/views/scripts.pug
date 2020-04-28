@@ -3,4 +3,145 @@ extends layout
 block content
   .content.content-allpage
     p Take a look at my batch scripts. Some of them were made entirely by me, the others are just my implementation of bash scripts in batch.
-    
+
+    h3.content-heading ATMTA pictures generator
+    pre.code-listing
+      | @echo off
+      | if "%1"=="" goto error
+      | if "%2"=="" goto error
+      |
+      | :right_side
+      | if "%1"=="right" (
+      |   ffmpeg -i "%2"  -filter_complex "[0:v]hflip[f];[f]crop=iw/2:ih:0:0[c];[0:v][c]overlay" "%~n2-rightflipped%~x2"
+      |   goto done
+      | )
+      |
+      | :left_side
+      | if "%1"=="left" (
+      |   ffmpeg -i "%2" -filter_complex "[0:v]hflip[f];[f]crop=iw/2:ih:iw/2:0[c];[0:v][c]overlay=main_w/2:0"  "%~n2-leftflipped%~x2"
+      |   goto done
+      | )
+      |
+      | :error
+      | echo Usage: atmta-generator [left^|right] [filename]
+      | goto done
+
+      | :done
+    p This a script which uses FFmpeg to flip (e.g. mirror) an image and replace one of it's sides with the mirrored one. Made it just for lulz.
+
+    h3.content-heading One compiler to rule them all
+    pre.code-listing
+      | @echo off
+      |
+      | :check_input
+      | if "%1"=="" goto error
+      |
+      | :latex
+      | if "%~x1"==".tex" (
+      |   pdflatex "%1"
+      |   goto done
+      | )
+      |
+      | :groff
+      | if "%~x1"==".ms" (
+      |   groff -ms "%1" -T pdf > "%~n1.pdf"
+      |   goto done
+      | )
+      |
+      | :c
+      | if "%~x1"==".c" (
+      |   gcc "%1" -o "%~n1"
+      |   goto done
+      | )
+      |
+      | :cpp
+      | if "%~x1"==".cpp" (
+      |   g++ "%1" -o "%~n1"
+      |   goto done
+      | )
+      |
+      | :unknown
+      | echo Unknown file format.
+      | goto done
+      |
+      | :error
+      | echo No file specified.
+      |
+      | :done
+    p This script is pretty straightforward. It launches the corresponding compiler for each type of the file, according to it's extension.
+
+    h3.content-heading Beats to study/code to
+    pre.code-listing
+      | @mpv "https://www.youtube.com/watch?v=5qap5aO4i9A" --no-video
+    p This little script just launches lo-fi radio in background. As simple as it is, but a lot easier than opening the actual video in the browser.
+
+    h3.content-heading GIF making
+    pre.code-listing
+      | @echo off
+      |
+      | if "%1"=="" goto blank
+      |
+      | :make_gif
+      | set palette_name=%TEMP%\palette_%RANDOM%.png
+      | ffmpeg -i "%1" -filter_complex "[0:v]palettegen" "%palette_name%"
+      | ffmpeg -i "%1" -i "%palette_name%" -filter_complex "[0:v][1:v]paletteuse" "%~n1.gif"
+      | goto done
+      |
+      | :blank
+      | echo You must specify the video.
+      |
+      | :done
+    p This script uses FFmpeg to generate a good-looking gif file with proper color palette.
+
+    h3.content-heading Video stabilizing
+    pre.code-listing
+      | @echo off
+      |
+      | :check_args
+      | if "%1"=="" goto :error
+      |
+      | :ffmpeg
+      | ffmpeg -i "%1" -vf vidstabdetect -f null -
+      | ffmpeg -i "%1" -vf vidstabtransform,unsharp=5:5:0.8:3:3:0.4 -c:v libx264 -crf 15 -c:a copy "%1_stabilized.mp4"
+      | goto done
+      |
+      | :error
+      | echo No arguments
+      |
+      | :done
+    p Again a FFmpeg script, but this time it stabilizes the video.
+
+    h3.content-heading
+    pre.code-listing
+      | @echo off
+      |
+      | :remeber_dir
+      | set prev_dir=%cd%
+      | set prev_drive=%cd:~0,2%
+      |
+      |
+      | :vim_plugins
+      | c:
+      | cd "%USERPROFILE%\vimfiles\pack\bundle\start"
+      | echo VIM:
+      | forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
+      |
+      | rem cd "..\opt"
+      | rem forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
+      |
+      |
+      | :nvim_plugins
+      | cd "%USERPROFILE%\AppData\Local\nvim\pack\bundle\start"
+      | echo.
+      | echo NEOVIM:
+      | forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
+      |
+      | rem cd "..\opt"
+      | rem forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
+      |
+      |
+      | :done
+      | %prev_drive%
+      | cd %prev_dir%
+      | echo Done.
+    p This is a simple routine to update all vim and nvim plugins on Windows.
