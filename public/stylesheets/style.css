@@ -147,6 +147,20 @@ div#index-links * {
 }
 
 
+/* Optimization for mobile phones */
+@media only screen and (max-width: 700px) {
+  div.content-alongside,
+  div#index-links {
+    width: 80%;
+    float: none;
+  }
+
+  div#index-links {
+    margin: 20px 10% 20px;
+  }
+}
+
+
 /* Posts styles */
 div.content div.post-container {
   width: calc(100% - 3px);
