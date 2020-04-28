@@ -41,6 +41,13 @@ module.exports.software = (req, res, next) => {
   });
 }
 
+module.exports.scripts = (req, res, next) => {
+  res.render('scripts', {
+    title: 'Scripts',
+    page_name: 'my batch scripts.'
+  });
+}
+
 
 // Useful functions
 // Formats a date in a pretty string
