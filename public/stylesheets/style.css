@@ -2,6 +2,7 @@
 :root {
   --text-color: #d4d4d4;
   --bg-color: #3e3e3e;
+  --spoiler-color: #747474;
 }
 
 
@@ -43,8 +44,8 @@ a:hover {
 }
 
 span.spoiler {
-  color: #747474;
-  background-color: #747474;
+  color: var(--spoiler-color);
+  background-color: var(--spoiler-color);
 }
 
 span.spoiler:hover {
