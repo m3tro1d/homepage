@@ -28,8 +28,7 @@ module.exports.index = (req, res, next) => {
       // Render, but don't display recent posts
       res.render('index', {
         title: 'm3tro1d\'s homepage',
-        page_name: 'm3tro1d.',
-        err_status: 1
+        page_name: 'm3tro1d.'
       });
     });
 }
