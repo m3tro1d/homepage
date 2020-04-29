@@ -119,26 +119,17 @@ block content
       | set prev_dir=%cd%
       | set prev_drive=%cd:~0,2%
       |
-      |
       | :vim_plugins
       | c:
       | cd "%USERPROFILE%\vimfiles\pack\bundle\start"
       | echo VIM:
       | forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
       |
-      | rem cd "..\opt"
-      | rem forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
-      |
-      |
       | :nvim_plugins
       | cd "%USERPROFILE%\AppData\Local\nvim\pack\bundle\start"
       | echo.
       | echo NEOVIM:
       | forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
-      |
-      | rem cd "..\opt"
-      | rem forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
-      |
       |
       | :done
       | %prev_drive%
