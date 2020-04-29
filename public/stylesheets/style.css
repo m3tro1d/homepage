@@ -2,6 +2,7 @@
 :root {
   --text-color: #d4d4d4;
   --bg-color: #3e3e3e;
+  --alt-bg-color: #494949;
   --spoiler-color: #747474;
 }
 
@@ -127,7 +128,7 @@ div#index-links {
 
   padding: 1%;
 
-  background-color: #494949;
+  background-color: var(--alt-bg-color);
   border-radius: 5px;
   font-size: 1.1em;
 
