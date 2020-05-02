@@ -1,6 +1,7 @@
 const boldButton = document.getElementById('format-bold');
 const italicButton = document.getElementById('format-italic');
 const spoilerButton = document.getElementById('format-spoiler');
+const linkButton = document.getElementById('format-link');
 
 // Bold text
 boldButton.onclick = function(event) {
@@ -18,6 +19,12 @@ italicButton.onclick = function(event) {
 spoilerButton.onclick = function(event) {
   event.preventDefault();
   insertText('<span class=\"spoiler\"></span>', 7);
+}
+
+// Hyperlink
+linkButton.onclick = function(event) {
+  event.preventDefault();
+  insertText('<a href=\"\"></a>', 6);
 }
 
 // Inserts text in the posting textarea (shifts the cursor from the right)
