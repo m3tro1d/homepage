@@ -14,7 +14,7 @@ italicButton.onclick = function(event) {
   insertText('<i></i>', 4);
 }
 
-// Deleted text
+// Spoiler text
 spoilerButton.onclick = function(event) {
   event.preventDefault();
   insertText('<span class=\"spoiler\"></span>', 7);
