@@ -23,16 +23,16 @@ form.onsubmit = function (event) {
   let xhr = new XMLHttpRequest();
   xhr.open('POST', apiOptions.server + '/api/blog', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
-  
+
   xhr.onload = function() {
     if (xhr.status != 201) {
-      printMessage(`Posting error ${xhr.status}: ${xhr.statusText}`, 'red');
+      printMessage(`Posting error ${xhr.status}: ${xhr.statusText}`, 'tomato');
       // Clear the message with a slight delay
       setTimeout(function() {
         printMessage('', '');
       }, 2000);
     } else {
-      printMessage('Posted successfully. You will be redirected to the post page.', 'green');
+      printMessage('Posted successfully. You will be redirected to the post page.', 'lightgreen');
       // Redirect with a slight delay
       setTimeout(function() {
         let responseObj = JSON.parse(xhr.responseText);
