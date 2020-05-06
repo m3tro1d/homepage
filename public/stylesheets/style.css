@@ -158,6 +158,11 @@ div#index-links * {
 
 /* Optimization for mobile phones */
 @media only screen and (max-width: 700px) {
+  header#page-header {
+    width: 90%;
+    margin: 0 5% 2%;
+  }
+
   div.content-alongside,
   div#index-links {
     width: 90%;
