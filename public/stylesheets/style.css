@@ -160,12 +160,13 @@ div#index-links * {
 @media only screen and (max-width: 700px) {
   div.content-alongside,
   div#index-links {
-    width: 80%;
+    width: 90%;
+    margin-left: 5%;
     float: none;
   }
 
   div#index-links {
-    margin: 20px 10% 20px;
+    margin: 20px 5% 20px;
   }
 }
 
