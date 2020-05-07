@@ -122,7 +122,7 @@ img#index-image {
 }
 
 /* Index links styles */
-div#index-links {
+aside#index-links {
   width: 20%;
   margin-left: 3%;
 
@@ -135,23 +135,23 @@ div#index-links {
   float: left;
 }
 
-div#index-links h4 {
+aside#index-links h4 {
   margin-left: 20px;
   margin-top: 10px;
 }
 
-div#index-links img {
+aside#index-links img {
   width: 20px;
   margin-right: 5px;
   height: auto;
 }
 
-div#index-links div#links {
+aside#index-links div#links {
   font-size: 1.15em;
   margin-left: 50px;
 }
 
-div#index-links * {
+aside#index-links * {
   background-color: inherit;
 }
 
@@ -164,19 +164,19 @@ div#index-links * {
   }
 
   div.content-alongside,
-  div#index-links {
+  aside#index-links {
     width: 90%;
     margin-left: 5%;
     float: none;
   }
 
+  aside#index-links {
+    margin: 20px 5% 20px;
+  }
+
   div.content-allpage {
     width: 90%;
     margin-left: 5%;
-  }
-
-  div#index-links {
-    margin: 20px 5% 20px;
   }
 }
 
