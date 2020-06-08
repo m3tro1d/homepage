@@ -12,13 +12,13 @@ block content
       |
       | :right_side
       | if "%1"=="right" (
-      |   ffmpeg -i "%2"  -filter_complex "[0:v]hflip[f];[f]crop=iw/2:ih:0:0[c];[0:v][c]overlay" "%~n2-rightflipped%~x2"
+      |   ffmpeg -i "%~2"  -filter_complex "[0:v]hflip[f];[f]crop=iw/2:ih:0:0[c];[0:v][c]overlay" "%~n2-rightflipped%~x2"
       |   goto done
       | )
       |
       | :left_side
       | if "%1"=="left" (
-      |   ffmpeg -i "%2" -filter_complex "[0:v]hflip[f];[f]crop=iw/2:ih:iw/2:0[c];[0:v][c]overlay=main_w/2:0"  "%~n2-leftflipped%~x2"
+      |   ffmpeg -i "%~2" -filter_complex "[0:v]hflip[f];[f]crop=iw/2:ih:iw/2:0[c];[0:v][c]overlay=main_w/2:0"  "%~n2-leftflipped%~x2"
       |   goto done
       | )
       |
@@ -38,25 +38,25 @@ block content
       |
       | :latex
       | if "%~x1"==".tex" (
-      |   pdflatex "%1"
+      |   pdflatex "%~1"
       |   goto done
       | )
       |
       | :groff
       | if "%~x1"==".ms" (
-      |   groff -ms "%1" -T pdf > "%~n1.pdf"
+      |   groff -ms "%~1" -T pdf &gt; "%~n1.pdf"
       |   goto done
       | )
       |
       | :c
       | if "%~x1"==".c" (
-      |   gcc "%1" -o "%~n1"
+      |   gcc "%~1" -o "%~n1"
       |   goto done
       | )
       |
       | :cpp
       | if "%~x1"==".cpp" (
-      |   g++ "%1" -o "%~n1"
+      |   g++ "%~1" -o "%~n1"
       |   goto done
       | )
       |
@@ -82,9 +82,7 @@ block content
       | if "%1"=="" goto blank
       |
       | :make_gif
-      | set palette_name=%TEMP%\palette_%RANDOM%.png
-      | ffmpeg -i "%1" -filter_complex "[0:v]palettegen" "%palette_name%"
-      | ffmpeg -i "%1" -i "%palette_name%" -filter_complex "[0:v][1:v]paletteuse" "%~n1.gif"
+      | ffmpeg -i "%~1" -filter_complex "[0:v]palettegen[p];[0:v][p]paletteuse" "%~n1.gif"
       | goto done
       |
       | :blank
@@ -101,8 +99,8 @@ block content
       | if "%1"=="" goto :error
       |
       | :ffmpeg
-      | ffmpeg -i "%1" -vf vidstabdetect -f null -
-      | ffmpeg -i "%1" -vf vidstabtransform,unsharp=5:5:0.8:3:3:0.4 -c:v libx264 -crf 15 -c:a copy "%1_stabilized.mp4"
+      | ffmpeg -i "%~1" -vf vidstabdetect -f null -
+      | ffmpeg -i "%~1" -vf vidstabtransform,unsharp=5:5:0.8:3:3:0.4 -c:v libx264 -crf 15 -c:a copy "%~n1_stabilized.mp4"
       | goto done
       |
       | :error
@@ -110,32 +108,6 @@ block content
       |
       | :done
     p Again a FFmpeg script, but this time it stabilizes the video.
-
-    h3.content-heading Vim plugin updater
-    pre.code-listing
-      | @echo off
-      |
-      | :remember_dir
-      | set prev_dir=%cd%
-      | set prev_drive=%cd:~0,2%
-      |
-      | :vim_plugins
-      | c:
-      | cd "%USERPROFILE%\vimfiles\pack\bundle\start"
-      | echo VIM:
-      | forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
-      |
-      | :nvim_plugins
-      | cd "%USERPROFILE%\AppData\Local\nvim\pack\bundle\start"
-      | echo.
-      | echo NEOVIM:
-      | forfiles /c "cmd /c echo @file: && cd @file && git pull && cd .."
-      |
-      | :done
-      | %prev_drive%
-      | cd %prev_dir%
-      | echo Done.
-    p Because I use native vim plugin support, I need to manually update all my plugins. Thus, I created a simple routine to automatically update all vim and nvim plugins on Windows.
 
     h3.content-heading
       a(href="/") Return to homepage
