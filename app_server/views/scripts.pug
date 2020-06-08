@@ -109,5 +109,23 @@ block content
       | :done
     p Again a FFmpeg script, but this time it stabilizes the video.
 
+    h3.content-heading Generating an audio spectrum
+    pre.code-listing
+      | @echo off
+      |
+      | :check_parameters
+      | if "%1"=="" goto error
+      |
+      | :generate_spectrum
+      | ffmpeg -i "%~1" -lavfi showspectrumpic=s=800x400:mode=separate "%~n1-spectrum.png"
+      | goto done
+      |
+      | :error
+      | echo No input parameters.
+      |
+      | :done
+    p This script generates an audio spectrum using FFmpeg.
+
+
     h3.content-heading
       a(href="/") Return to homepage
