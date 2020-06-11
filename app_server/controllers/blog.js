@@ -46,8 +46,13 @@ module.exports.post = (req, res, next) => {
       });
     })
     .catch(error => {
-      // Pass error to the error handler
-      next(error);
+      if (error.response.status == 404) {
+        // Pass the control to the not found controller
+        next();
+      } else {
+        // In case of other type error, pass error to the error handler
+        next(error);
+      }
     });
 }
 
