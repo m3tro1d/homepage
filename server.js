@@ -38,7 +38,12 @@ app.use('/api/blog', blogApiRouter);
 
 // Handle 404 error
 app.use((req, res, next) => {
-  next(createError(404));
+  // next(createError(404));
+  res.status(404);
+  res.render('not_found', {
+    title: '404 Not Found',
+    page_name: 'Not Found'
+  });
 });
 
 // Handle errors
