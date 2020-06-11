@@ -252,3 +252,10 @@ form textarea {
 form span#posting-message {
   margin: 10px;
 }
+
+
+/* Not found page styles */
+img#not-found-img {
+  height: 400px;
+  width: auto;
+}
