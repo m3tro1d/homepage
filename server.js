@@ -48,7 +48,8 @@ app.use((req, res, next) => {
 
 // Handle errors
 app.use((err, req, res, next) => {
-  let status = err.status || 500;
+  // err.response.status is for axios error objects
+  let status = err.status || err.response.status || 500;
 
   res.locals.message = err.message;
   res.locals.status = status;
