@@ -1,5 +1,5 @@
 {
-  "name": "personal-website",
+  "name": "homepage",
   "description": "My personal homepage",
   "main": "server.js",
   "scripts": {
