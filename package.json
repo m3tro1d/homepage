@@ -6,7 +6,7 @@
     "start": "node ./server.js",
     "dev": "env-cmd nodemon ./server.js"
   },
-  "repository": "https://github.com/m3tro1d/personal-website.git",
+  "repository": "https://github.com/m3tro1d/homepage.git",
   "author": "m3tro1d",
   "license": "GPL-3.0",
   "private": true,
