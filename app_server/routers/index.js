@@ -9,7 +9,5 @@ const router = express.Router();
 router.get('/', ctrlIndex.index);
 // Software info page
 router.get('/software', ctrlIndex.software);
-// Scripts page
-router.get('/scripts', ctrlIndex.scripts);
 
 module.exports = router;
