@@ -146,7 +146,7 @@ aside#index-links img {
   height: auto;
 }
 
-aside#index-links div#links {
+aside#index-links div.links {
   font-size: 1.15em;
   margin-left: 50px;
 }
