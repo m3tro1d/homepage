@@ -36,7 +36,7 @@ form.onsubmit = function (event) {
       // Redirect with a slight delay
       setTimeout(function() {
         let responseObj = JSON.parse(xhr.responseText);
-        document.location.href = `${apiOptions.server}/blog/post/${responseObj.url}`;
+        location.replace(`${apiOptions.server}/blog/post/${responseObj.url}`);
       }, 2000);
     }
   }
