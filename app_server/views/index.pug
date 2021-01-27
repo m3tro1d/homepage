@@ -4,10 +4,9 @@ block content
   .content.content-alongside
     h3 Welcome!
     img#index-image(src="/images/tomoko.gif", alt="Tomoko")
-    p I'm m3tro1d, and this is my personal homepage.
-    br
-    p I created this website for practice. Stay tuned for updates!
-    br
+    p I'm m3tro1d, and this is my personal homepage. It's mainly for practice purposes, but whatever.
+    p It may seem that this page is rather simple in all terms. So this is a perfect place for one of my favorite quotes:
+    p #[q An idiot admires complexity. A genius admires simplicity.] &mdash; Terry Davis
 
     h3.content-heading Recent blog posts
     ul
@@ -15,7 +14,6 @@ block content
         li!= `${post.date} - <a href="/blog/post/${post.url}">${post.heading}</a>`
       else
         li An unexpected error occured.. Stay tuned.
-    br
     p Check out #[a(href="/blog") blog index] for the rest.
     br
 
