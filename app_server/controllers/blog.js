@@ -11,7 +11,7 @@ module.exports.index = (req, res, next) => {
     .then(response => {
       // Make post pretty
       let data = response.data.map(post => {
-        post.text = truncateText(post.text);
+        post.text = formatText(post.text);
         post.date = formatDate(post.date);
         return post;
       });
@@ -20,7 +20,7 @@ module.exports.index = (req, res, next) => {
       res.render('blog_index', {
         title: 'Blog index',
         page_name: 'Blog index.',
-        posts: response.data
+        posts: data
       });
     })
     .catch(error => {
@@ -83,9 +83,14 @@ function formatDate(dateString) {
   return `${day} ${monthNames[monthIndex]} ${year}`;
 }
 
-function truncateText(text) {
-  if (text.length > 50) {
-    return text.substring(0, 50) + '...';
+// Formats post's text
+function formatText(text) {
+  // Strip html
+  text = text.replace(/(<([^>]+)>)/gi, "");
+  // Make it smaller
+  if (text.length > 100) {
+    text = text.substring(0, 99);
   }
-  return text;
+  // Include the last word boundary
+  return text.substring(0, text.lastIndexOf(" ")) + "...";
 }
