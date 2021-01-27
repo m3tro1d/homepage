@@ -36,6 +36,14 @@ h4 {
   color: #ff9664;
 }
 
+p {
+  margin-top: 10px;
+}
+
+q {
+  font-style: italic;
+}
+
 a {
   color: #00c6c6;
 }
