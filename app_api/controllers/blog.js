@@ -52,7 +52,7 @@ module.exports.getOnePost = (req, res, next) => {
         });
       } else if (err) { // Check for error
         sendJsonResponse(res, 404, err);
-      } else {          // Send it (vewy woughly 0w0)
+      } else {          // Send it
         sendJsonResponse(res, 200, post);
       }
     });
