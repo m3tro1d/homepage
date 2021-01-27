@@ -90,7 +90,8 @@ function formatText(text) {
   // Make it smaller
   if (text.length > 100) {
     text = text.substring(0, 99);
+    text = text.substring(0, text.lastIndexOf(" ")) + "...";
   }
   // Include the last word boundary
-  return text.substring(0, text.lastIndexOf(" ")) + "...";
+  return text
 }
