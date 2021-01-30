@@ -22,13 +22,9 @@ form.onsubmit = function (event) {
 
   xhr.onload = function() {
     if (xhr.status != 201) {
-      printMessage(`Render error ${xhr.status}: ${xhr.statusText}`);
-      // Clear the message with a slight delay
-      setTimeout(function() {
-        printMessage('', '');
-      }, 2000);
+      displayResult(`Render error ${xhr.status}: ${xhr.statusText}`);
     } else {
-      printMessage(JSON.parse(xhr.responseText).output);
+      displayResult(JSON.parse(xhr.responseText).output);
     }
   }
 
@@ -36,8 +32,8 @@ form.onsubmit = function (event) {
   xhr.send(JSON.stringify(body));
 }
 
-// Prints a message in the specified color with
-function printMessage(msg) {
+// Display the rendering result
+function displayResult(msg) {
   const messageBox = document.getElementById('render-result');
   messageBox.innerHTML = msg;
 }
