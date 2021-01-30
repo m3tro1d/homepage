@@ -12,6 +12,7 @@ const indexRouter = require('./app_server/routers/index');
 const blogRouter = require('./app_server/routers/blog');
 // API routers
 const blogApiRouter = require('./app_api/routers/blog');
+const rendererApiRouter = require('./app_api/routers/renderer')
 
 
 const app = express()
