@@ -4,10 +4,11 @@ module.exports.render = (req, res, next) => {
   mathjax.init({
     loader: {load: ['input/tex', 'output/svg']}
   }).then((MathJax) => {
-      const svg = MathJax.tex2svg('\\frac{1}{2}', {display: true});
-      console.log(MathJax.startup.adaptor.outerHTML(svg));
-  }).catch((err) => console.log(err.message));
-  sendJsonResponse(res, 200, {message: 'Success'})
+    const svg = MathJax.tex2svg(req.body.input, {display: true});
+    sendJsonResponse(res, 201, {output: MathJax.startup.adaptor.outerHTML(svg)})
+  }).catch((err) => {
+    sendJsonResponse(res, 400, err);
+  });
 }
 
 
