@@ -36,6 +36,7 @@ app.use('/', indexRouter);
 app.use('/blog', blogRouter);
 // API routes
 app.use('/api/blog', blogApiRouter);
+app.use('/api/renderer', rendererApiRouter);
 
 // Handle 404 error
 app.use((req, res, next) => {
