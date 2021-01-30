@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .content.content-allpage
+    form#render-form(action="/api/renderer/render", method="post")
+      label(for="render-input") Input:
+      br
+      textarea#render-input(name="input", cols="50", rows="10", required)
+      br
+      button#render-submit(type="submit") Render
+
+    br
+    #render-result
+
+  script(lang="javascript", src="/javascript/renderer_script.js")

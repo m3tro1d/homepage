@@ -7,7 +7,7 @@ module.exports.render = (req, res, next) => {
     const svg = MathJax.tex2svg(req.body.input, {display: true});
     sendJsonResponse(res, 201, {output: MathJax.startup.adaptor.outerHTML(svg)})
   }).catch((err) => {
-    sendJsonResponse(res, 400, err);
+    sendJsonResponse(res, 400, {message: err.message});
   });
 }
 

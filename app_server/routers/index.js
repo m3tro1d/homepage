@@ -9,5 +9,7 @@ const router = express.Router();
 router.get('/', ctrlIndex.index);
 // Software info page
 router.get('/software', ctrlIndex.software);
+// Renderer
+router.get('/renderer', ctrlIndex.renderer);
 
 module.exports = router;
