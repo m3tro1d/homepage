@@ -42,8 +42,8 @@ module.exports.software = (req, res, next) => {
 
 module.exports.renderer = (req, res, next) => {
   res.render('renderer', {
-    title: 'TeX renderer',
-    page_name: 'Render your TeX'
+    title: 'MathJax TeX renderer',
+    page_name: 'Render your TeX math'
   });
 }
 
