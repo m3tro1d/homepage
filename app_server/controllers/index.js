@@ -40,6 +40,13 @@ module.exports.software = (req, res, next) => {
   });
 }
 
+module.exports.whyVim = (req, res, next) => {
+  res.render('why_vim', {
+    title: 'Why I use Vim',
+    page_name: 'Why I use Vim'
+  });
+}
+
 module.exports.renderer = (req, res, next) => {
   res.render('renderer', {
     title: 'MathJax TeX renderer',

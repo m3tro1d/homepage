@@ -9,6 +9,8 @@ const router = express.Router();
 router.get('/', ctrlIndex.index);
 // Software info page
 router.get('/software', ctrlIndex.software);
+// Why Vim article
+router.get('/whyvim', ctrlIndex.whyVim);
 // Renderer
 router.get('/renderer', ctrlIndex.renderer);
 
