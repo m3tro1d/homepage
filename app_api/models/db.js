@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const readline = require('readline');
 
-// Initialize models
+// Initialize the models
 require('./Post');
 
 const dbUri = process.env.DB_URI;
@@ -35,7 +35,7 @@ process.on('SIGINT', () => {
   shutdown('app termination', () => process.exit(0));
 });
 
-// For gracefull shutdown
+// For a gracefull shutdown
 function shutdown(msg, callback) {
   mongoose.connection.close(() => {
     console.log('Mongoose disconnected due to ' + msg);

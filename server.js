@@ -4,7 +4,7 @@ const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
-// Connect to database
+// Connect to database and initialize the models
 require('./app_api/models/db');
 
 // Client-side routers

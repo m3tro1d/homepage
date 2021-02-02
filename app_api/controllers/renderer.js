@@ -1,12 +1,14 @@
 const mathjax = require('mathjax');
 
 module.exports.render = (req, res, next) => {
-  mathjax.init({
-    loader: {load: ['input/tex', 'output/svg']}
-  }).then((MathJax) => {
+  // Initialize the renderer
+  mathjax.init( {loader: {load: ['input/tex', 'output/svg']}} )
+    .then((MathJax) => {
+    // Render and send the image
     const svg = MathJax.tex2svg(req.body.input, {display: true});
     sendJsonResponse(res, 201, {output: MathJax.startup.adaptor.outerHTML(svg)})
   }).catch((err) => {
+    // Check for errors
     sendJsonResponse(res, 400, {message: err.message});
   });
 }
@@ -15,6 +17,5 @@ module.exports.render = (req, res, next) => {
 // Useful functions
 // Ends res with given status and json content
 function sendJsonResponse(res, status, content) {
-  res.status(status);
-  res.json(content);
+  res.status(status).json(content);
 }
