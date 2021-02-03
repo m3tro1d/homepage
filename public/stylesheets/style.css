@@ -58,6 +58,8 @@ a:hover {
 span.spoiler {
   color: var(--spoiler-color);
   background-color: var(--spoiler-color);
+  padding: 2px;
+  border-radius: 2px;
 }
 
 span.spoiler:hover {
@@ -102,6 +104,19 @@ div.content h3 {
 div.content h3.content-heading {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+div.content h4 {
+  margin-left: 10px;
+}
+
+div.content img {
+  margin: 10px;
+}
+
+div.content img.reaction {
+  max-width: 25%;
+  max-height: 200px;
 }
 
 div.content pre.code-listing {
