@@ -137,12 +137,12 @@ function sendJsonResponse(res, status, content) {
 function generateUrl(heading, dateNumber) {
   // Generate safe url
   const urlGenerator = new UrlSafeString();
-  let urlStart = urlGenerator.generate(heading);
+  const urlStart = urlGenerator.generate(heading);
 
-  let date = new Date(dateNumber);
-  let day = date.getDate();
-  let month = date.getMonth();
-  let year = date.getFullYear();
+  const date = new Date(dateNumber);
+  const day = date.getDate();
+  const month = date.getMonth();
+  const year = date.getFullYear();
 
   return `${urlStart}-${day}-${month}-${year}`;
 }
