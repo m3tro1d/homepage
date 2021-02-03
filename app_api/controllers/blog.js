@@ -9,7 +9,7 @@ module.exports.getSeveralPosts = (req, res, next) => {
   let amount = parseInt(req.query.amount);
   // Get <amount> posts if the amount is present and positive
   if (req.query.amount && amount > 0) {
-      Post
+    Post
       .find()             // Get posts
       .sort({ date: -1 }) // Sort newest to latest
       .limit(amount)      // Limit post amount
@@ -24,8 +24,8 @@ module.exports.getSeveralPosts = (req, res, next) => {
           sendJsonResponse(res, 200, posts);
         }
       });
-    } else { // If amount is negative or not present, get all posts
-      Post
+  } else { // If amount is negative or not present, get all posts
+    Post
       .find()             // Get posts
       .sort({ date: -1 }) // Sort newest to latest
       .exec((err, posts) => {
@@ -39,8 +39,8 @@ module.exports.getSeveralPosts = (req, res, next) => {
           sendJsonResponse(res, 200, posts);
         }
       });
-    }
-}
+  }
+};
 
 module.exports.getOnePost = (req, res, next) => {
   Post
@@ -56,7 +56,7 @@ module.exports.getOnePost = (req, res, next) => {
         sendJsonResponse(res, 200, post);
       }
     });
-}
+};
 
 module.exports.createPost = (req, res, next) => {
   // Check if all data is present
@@ -81,7 +81,7 @@ module.exports.createPost = (req, res, next) => {
         }
       });
   }
-}
+};
 
 module.exports.updatePost = (req, res, next) => {
   // Check if all data is present
@@ -112,7 +112,7 @@ module.exports.updatePost = (req, res, next) => {
         }
       });
   }
-}
+};
 
 module.exports.deletePost = (req, res, next) => {
   Post
@@ -124,7 +124,7 @@ module.exports.deletePost = (req, res, next) => {
         sendJsonResponse(res, 204, null);
       }
     });
-}
+};
 
 
 // Useful functions

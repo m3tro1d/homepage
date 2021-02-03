@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const apiOptions = {
   server: `http://localhost:${process.env.PORT}`
-}
+};
 
 module.exports.index = (req, res, next) => {
   let path = '/api/blog';
@@ -27,7 +27,7 @@ module.exports.index = (req, res, next) => {
       // Pass error to the error handler
       next(error);
     });
-}
+};
 
 module.exports.post = (req, res, next) => {
   let path = '/api/blog/post/' + req.params.posturl;
@@ -54,24 +54,24 @@ module.exports.post = (req, res, next) => {
         next(error);
       }
     });
-}
+};
 
 module.exports.createPost = (req, res, next) => {
   res.render('blog_create_post', {
     title: 'Create post | m3tro1d',
     page_name: 'Create post.'
   });
-}
+};
 
 
 // Useful functions
 // Formats a date in a pretty string
 function formatDate(dateString) {
   let monthNames = [
-    "Jan", "Feb", "Mar",
-    "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep",
-    "Oct", "Nov", "Dec"
+    'Jan', 'Feb', 'Mar',
+    'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep',
+    'Oct', 'Nov', 'Dec'
   ];
 
   let date = new Date(dateString);
@@ -86,12 +86,12 @@ function formatDate(dateString) {
 // Formats post's text
 function formatText(text) {
   // Strip html
-  text = text.replace(/(<([^>]+)>)/gi, "");
+  text = text.replace(/(<([^>]+)>)/gi, '');
   // Make it smaller
   if (text.length > 100) {
     text = text.substring(0, 99);
-    text = text.substring(0, text.lastIndexOf(" ")) + "...";
+    text = text.substring(0, text.lastIndexOf(' ')) + '...';
   }
   // Include the last word boundary
-  return text
+  return text;
 }

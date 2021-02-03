@@ -1,6 +1,5 @@
 const express = require('express');
 const logger = require('morgan');
-const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
@@ -12,10 +11,10 @@ const indexRouter = require('./app_server/routers/index');
 const blogRouter = require('./app_server/routers/blog');
 // API routers
 const blogApiRouter = require('./app_api/routers/blog');
-const rendererApiRouter = require('./app_api/routers/renderer')
+const rendererApiRouter = require('./app_api/routers/renderer');
 
 
-const app = express()
+const app = express();
 
 // App settings
 app.set('port', process.env.PORT);

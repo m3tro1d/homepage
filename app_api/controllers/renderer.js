@@ -9,16 +9,16 @@ module.exports.render = (req, res, next) => {
       }
     })
     .then((MathJax) => {
-    // Render and send the image
-    const svg = MathJax.tex2svg(req.body.input, {display: true});
-    sendJsonResponse(res, 201, {
-      output: MathJax.startup.adaptor.outerHTML(svg)
+      // Render and send the image
+      const svg = MathJax.tex2svg(req.body.input, {display: true});
+      sendJsonResponse(res, 201, {
+        output: MathJax.startup.adaptor.outerHTML(svg)
+      });
+    }).catch(err => {
+      // Check for errors
+      sendJsonResponse(res, 400, err);
     });
-  }).catch(err => {
-    // Check for errors
-    sendJsonResponse(res, 400, err);
-  });
-}
+};
 
 
 // Useful functions

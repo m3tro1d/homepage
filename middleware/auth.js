@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
   } else {
     sendJsonResponse(res, 401, { message: 'Unauthorized.' });
   }
-}
+};
 
 
 // Useful functions

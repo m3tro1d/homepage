@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const apiOptions = {
   server: `http://localhost:${process.env.PORT}`
-}
+};
 
 module.exports.index = (req, res, next) => {
   // Get 5 or less lates blog posts
@@ -31,38 +31,38 @@ module.exports.index = (req, res, next) => {
         page_name: 'm3tro1d.'
       });
     });
-}
+};
 
 module.exports.software = (req, res, next) => {
   res.render('software', {
     title: 'Software',
     page_name: 'my software.'
   });
-}
+};
 
 module.exports.whyVim = (req, res, next) => {
   res.render('why_vim', {
     title: 'Why I use Vim',
     page_name: 'Why I use Vim'
   });
-}
+};
 
 module.exports.renderer = (req, res, next) => {
   res.render('renderer', {
     title: 'MathJax TeX renderer',
     page_name: 'Render your TeX math'
   });
-}
+};
 
 
 // Useful functions
 // Formats a date in a pretty string
 function formatDate(dateString) {
   let monthNames = [
-    "Jan", "Feb", "Mar",
-    "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep",
-    "Oct", "Nov", "Dec"
+    'Jan', 'Feb', 'Mar',
+    'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep',
+    'Oct', 'Nov', 'Dec'
   ];
 
   let date = new Date(dateString);
