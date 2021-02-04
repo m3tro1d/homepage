@@ -141,7 +141,7 @@ div.content pre.code-listing {
 
 /* Index page specific styles */
 img#index-image {
-  width: 36%;
+  max-width: 30%;
   margin-left: 10px;
   border-radius: 5px;
 
@@ -286,7 +286,7 @@ img#not-found-img {
   }
 
   img#index-image {
-    width: 60%;
+    max-width: 60%;
     float: none;
     display: block;
     margin-right: auto;
