@@ -112,6 +112,7 @@ div.content h4 {
 
 div.content img {
   margin: 10px;
+  max-width: calc(100% - 20px);
 }
 
 div.content img.reaction {
@@ -181,34 +182,9 @@ aside#index-links * {
 }
 
 
-/* Optimization for mobile phones */
-@media only screen and (max-width: 700px) {
-  header#page-header {
-    width: 90%;
-    margin: 0 5% 2%;
-  }
-
-  div.content-alongside,
-  aside#index-links {
-    width: 90%;
-    margin-left: 5%;
-    float: none;
-  }
-
-  aside#index-links {
-    margin: 20px 5% 20px;
-  }
-
-  div.content-allpage {
-    width: 90%;
-    margin-left: 5%;
-  }
-}
-
-
 /* Posts styles */
 div.post-container {
-  width: calc(100% - 3px);
+  width: calc(95% - 5px);
   padding: 5px;
   padding-left: 5%;
   margin-bottom: 30px;
@@ -283,4 +259,48 @@ form span#posting-message {
 img#not-found-img {
   height: 400px;
   width: auto;
+}
+
+
+/* Optimization for mobile phones */
+@media only screen and (max-width: 700px) {
+  header#page-header {
+    width: 90%;
+    margin: 0 5% 2%;
+  }
+
+  div.content-alongside,
+  aside#index-links {
+    width: 90%;
+    margin-left: 5%;
+    float: none;
+  }
+
+  aside#index-links {
+    margin: 20px 5% 20px;
+  }
+
+  div.content-allpage {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  img#index-image {
+    width: 60%;
+    float: none;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  div.content img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  div.content img.reaction {
+    max-width: 70%;
+    max-height: 160px;
+  }
 }
