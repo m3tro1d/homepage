@@ -1,6 +1,8 @@
 const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+const http = require('http');
 const path = require('path');
 
 // Connect to database and initialize the models
@@ -17,7 +19,8 @@ const rendererApiRouter = require('./app_api/routers/renderer');
 const app = express();
 
 // App settings
-app.set('port', process.env.PORT);
+app.set('port', resolvePort(process.env.PORT || '3000'));
+app.set('env', process.env.NODE_ENV);
 
 // Set up view engine
 app.set('views', path.join(__dirname, 'app_server/views'));
@@ -39,12 +42,7 @@ app.use('/api/renderer', rendererApiRouter);
 
 // Handle 404 error
 app.use((req, res, next) => {
-  // next(createError(404));
-  res.status(404);
-  res.render('not_found', {
-    title: '404 Not Found',
-    page_name: 'Not Found'
-  });
+  next(createError(404));
 });
 
 // Handle errors
@@ -54,9 +52,71 @@ app.use((err, req, res, next) => {
 
   res.locals.message = err.message;
   res.locals.status = status;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   res.status(status);
-  res.end(err.message);
+
+  // Handle 404 error in a special way
+  if (status === 404) {
+    res.render('not_found', {
+      title: '404 Not Found',
+      page_name: 'Not Found'
+    });
+  } else {
+    res.end(err.message);
+  }
 });
 
-app.listen(app.get('port'), () => console.log(`Server listening on port ${app.get('port')}.`));
+// Start the server
+const server = http.createServer(app);
+server.listen(app.get('port'));
+server.on('error', onError);
+server.on('listening', onListening);
+
+
+// Functions
+
+// Returns a proper port value
+function resolvePort(value) {
+  const port = parseInt(value, 10);
+  if (isNaN(port)) {
+    return value; // Pipe
+  }
+  if (port >= 0) {
+    return port; // Number
+  }
+  return false; // None of the above
+}
+
+// Handler for the 'error' server event
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  const bind = typeof app.get('port') === 'string'
+    ? 'Pipe ' + app.get('port')
+    : 'Port ' + app.get('port');
+
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+// Handler for the 'listening' server event
+function onListening() {
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  console.log('Listening on ' + bind);
+}
