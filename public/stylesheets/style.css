@@ -112,7 +112,7 @@ div.content h4 {
 
 div.content img {
   margin: 10px;
-  max-width: calc(100% - 20px);
+  max-width: calc(50% - 20px);
 }
 
 div.content img.reaction {
@@ -297,6 +297,7 @@ img#not-found-img {
     display: block;
     margin-right: auto;
     margin-left: auto;
+    max-width: calc(90% - 20px);
   }
 
   div.content img.reaction {
