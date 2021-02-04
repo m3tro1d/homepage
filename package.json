@@ -6,12 +6,15 @@
     "start": "node ./server.js",
     "dev": "env-cmd nodemon ./server.js"
   },
-  "repository": "https://github.com/m3tro1d/homepage.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m3tro1d/homepage.git"
+  },
+  "homepage": "https://github.com/m3tro1d/homepage#readme",
   "author": "m3tro1d",
   "license": "GPL-3.0",
-  "private": true,
   "engines": {
-    "node": "12.x",
+    "node": "14.x",
     "npm": "6.x"
   },
   "dependencies": {
