@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const UrlSafeString = require('url-safe-string');
 
+
 // Get model
 const Post = mongoose.model('Post');
 
@@ -73,13 +74,20 @@ module.exports.createPost = (req, res, next) => {
         text: req.body.text,
         url: generateUrl(req.body.heading, postDate),
         date: postDate
-      }, (err, post) => {
-        if (err) { // Check for error
-          sendJsonResponse(res, 400, err);
-        } else {   // Response with the created post
-          sendJsonResponse(res, 201, post);
-        }
+      })
+      .then(post => {
+        sendJsonResponse(res, 201, post);
+      })
+      .catch(err => {
+        sendJsonResponse(res, 400, err);
       });
+      // }, (err, post) => {
+      //   if (err) { // Check for error
+      //     sendJsonResponse(res, 400, err);
+      //   } else {   // Response with the created post
+      //     sendJsonResponse(res, 201, post);
+      //   }
+      // });
   }
 };
 
@@ -102,13 +110,20 @@ module.exports.updatePost = (req, res, next) => {
         } else {          // Update the post
           post.heading = req.body.heading;
           post.text = req.body.text;
-          post.save((err, post) => {
-            if (err) { // Check for error
-              sendJsonResponse(res, 400, err);
-            } else {   // Respond with edited post
+          post.save()
+            .then(post => {
               sendJsonResponse(res, 200, post);
-            }
-          });
+            })
+            .catch(err => {
+              sendJsonResponse(res, 400, err);
+            });
+          // post.save((err, post) => {
+          //   if (err) { // Check for error
+          //     sendJsonResponse(res, 400, err);
+          //   } else {   // Respond with edited post
+          //     sendJsonResponse(res, 200, post);
+          //   }
+          // });
         }
       });
   }

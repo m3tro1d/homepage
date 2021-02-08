@@ -3,7 +3,7 @@ const express = require('express');
 const ctrlBlog = require('../controllers/blog');
 const auth = require('../../middleware/auth');
 
-// Router for the blog API routes
+
 const router = express.Router();
 
 // Get an amount of posts (or all)

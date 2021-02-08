@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+
 const apiOptions = {
   server: `http://localhost:${process.env.PORT}`
 };
@@ -24,8 +25,11 @@ module.exports.index = (req, res, next) => {
       });
     })
     .catch(error => {
-      // Pass error to the error handler
-      next(error);
+      // Render, but don't display the posts
+      res.render('blog_index', {
+        title: 'Blog index',
+        page_name: 'Blog index.'
+      });
     });
 };
 

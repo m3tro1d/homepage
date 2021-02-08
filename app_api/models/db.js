@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const readline = require('readline');
 
+
 // Initialize the models
 require('./Post');
 
@@ -19,7 +20,6 @@ mongoose.connection.on('error', err => {
 mongoose.connection.on('disconnected', () => {
   console.log('Mongoose disconnected');
 });
-
 
 // Emulate SIGINT on windows
 if (process.platform === 'win32') {

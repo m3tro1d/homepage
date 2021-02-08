@@ -1,5 +1,6 @@
 const mathjax = require('mathjax');
 
+
 module.exports.render = (req, res, next) => {
   // Initialize the renderer
   mathjax

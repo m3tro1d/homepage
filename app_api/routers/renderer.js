@@ -2,7 +2,7 @@ const express = require('express');
 
 const ctrlRenderer = require('../controllers/renderer');
 
-// Router for the blog API routes
+
 const router = express.Router();
 
 // Render the input

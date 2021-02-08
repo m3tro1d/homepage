@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const postSchema = mongoose.Schema({
   url: { type: String, required: true },
   heading: { type: String, required: true },
