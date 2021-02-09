@@ -81,13 +81,6 @@ module.exports.createPost = (req, res, next) => {
       .catch(err => {
         sendJsonResponse(res, 400, err);
       });
-      // }, (err, post) => {
-      //   if (err) { // Check for error
-      //     sendJsonResponse(res, 400, err);
-      //   } else {   // Response with the created post
-      //     sendJsonResponse(res, 201, post);
-      //   }
-      // });
   }
 };
 
@@ -117,13 +110,6 @@ module.exports.updatePost = (req, res, next) => {
             .catch(err => {
               sendJsonResponse(res, 400, err);
             });
-          // post.save((err, post) => {
-          //   if (err) { // Check for error
-          //     sendJsonResponse(res, 400, err);
-          //   } else {   // Respond with edited post
-          //     sendJsonResponse(res, 200, post);
-          //   }
-          // });
         }
       });
   }
