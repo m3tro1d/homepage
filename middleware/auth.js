@@ -1,10 +1,13 @@
 // Middleware function for authorizing access to API
 module.exports = (req, res, next) => {
   // Check for password match
-  if (req.body.api_pass == process.env.API_PASS) {
+  // TODO: make something more reliable and scalable than this
+  if (req.body.api_pass === process.env.API_PASS) {
     next();
   } else {
-    sendJsonResponse(res, 401, { message: 'Unauthorized.' });
+    sendJsonResponse(res, 401, {
+      message: 'Unauthorized'
+    });
   }
 };
 
