@@ -2,18 +2,26 @@ extends layout
 
 block content
   .content.content-alongside
-    h3 Welcome!
+    h3.content-heading Welcome!
     img#index-image(src="/images/pages/index.jpg", alt="Index image" title="Please have a seat")
-    p I'm m3tro1d, and this is my personal homepage. It's mainly for practice purposes, but whatever.
+    p Hello there! I'm m3tro1d, and this is my personal homepage. It's mainly for practice purposes, but whatever.
     p It may seem that this page is rather simple in all terms. So this is a perfect place for one of my favorite quotes:
     p #[q An idiot admires complexity. A genius admires simplicity.] &mdash; Terry Davis
+
+    h3.content-heading My skills and hobbies
+    ul
+      li Computer programming. I mostly use C/C++, Python, Java Script, a bit of Scheme, batch, and Vim script;
+      li Cycling, calisthenics and jogging. Your brain is nothing without your body, so stay healthy, friends;
+      li Learning Latin;
+      li Casual article writing.
+    p Keep in mind that knowing a #[i programming language] is #[b not] knowing how to #[i program]. Programming is all about solving problems and finding the most elegant solutions.
 
     h3.content-heading Recent blog posts
     ul
       each post in recent_posts
         li!= `${post.date} - <a href="/blog/post/${post.url}">${post.heading}</a>`
       else
-        li An unexpected error occured.. Stay tuned.
+        li An unexpected error occurred.. Stay tuned.
     p Check out #[a(href="/blog") blog index] for the rest.
     br
 
@@ -27,8 +35,8 @@ block content
     h3 Links:
     .links
       a(href="https://github.com/m3tro1d" target="_blank")
-        img(src="/images/logos/github_logo.png", alt="Github")
-        | Github
+        img(src="/images/logos/github_logo.png", alt="GitHub")
+        | GitHub
       br
       a(href="https://t.me/kiryu9" target="_blank")
         img(src="/images/logos/telegram_logo.png", alt="Telegram")
