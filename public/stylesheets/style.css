@@ -270,14 +270,19 @@ img#not-found-img {
   }
 
   div.content-alongside,
-  aside#index-links {
+  aside.content-aside {
     width: 90%;
     margin-left: 5%;
     float: none;
   }
 
-  aside#index-links {
-    margin: 20px 5% 20px;
+  aside.content-aside {
+    padding: 2%;
+    margin: 3%;
+  }
+
+  aside.content-aside div.links * {
+    margin: 0.5%;
   }
 
   div.content-allpage {
